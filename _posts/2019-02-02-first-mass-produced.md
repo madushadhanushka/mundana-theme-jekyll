@@ -1,27 +1,44 @@
 ---
 layout: post
-title:  "The first mass-produced book to deviate from a rectilinear format"
+title:  "Kubernetes in Microservices World"
 author: sal
 categories: [ tutorial ]
-image: assets/images/17.jpg
+image: https://hashnode.imgix.net/res/hashnode/image/upload/v1553077553650/FpwpRvSPX.jpeg?w=500&h=263&fit=crop&crop=entropy&auto=format,enhance&q=60
 tags: [featured]
 ---
-The first mass-produced book to deviate from a rectilinear format, at least in the United States, is thought to be this 1863 edition of Red Riding Hood, cut into the shape of the protagonist herself with the troublesome wolf curled at her feet. Produced by the Boston-based publisher Louis Prang, this is the first in their “Doll Series”, a set of five “die-cut” books, known also as shape books — the other titles being Robinson Crusoe, Goody Two-Shoes (also written by Red Riding Hood author Lydia Very), Cinderella, and King Winter. 
+Handling large software which has multiple services is a tedious, time-consuming task for DevOps engineer. Microservices comes into the rescue DevOps from all these complicated deployment processes. In simply, each microservice in the system response to handle one specific task. The container can be used to deploy each of these micro-tasks as a unit of service. If you are not that familiar with Containers, read [this](https://hashnode.com/post/introduction-to-docker-life-cycle-cjsujgkbn002agvs1pcfx99lb) article to get to know about Docker, Which is the most popular and widely used container technology so far.
 
-An 1868 Prang catalogue would later claim that such “books in the shape of a regular paper Doll... originated with us”. 
+So far we have one container which has all required configurations and dependencies for one specific service. Single service always faces a common problem of a single point of failure. In order to avoid single point failure, we need to set up another service such that if one service is getting down, another service takes that load. Another requirement to have multiple containers for the same service is that, distributing the load between the services. This can be achieved by connecting multiple services through a load balancer. To maintain multiple containers which have multiple services with service replication is not that easy task to handle manually. To automate this process, Kubernetes comes to the rescue by providing the capability of container orchestration.
+### What Kubernetes do?
+Imagine you have an application which has multiple services and each of these services configured inside a container. Let assume these two services as Service A and Service B and Service A use Service B. Now we can represent services as follows.
 
-> It would seem the claim could also extend to die cut books in general, as we can’t find anything sooner, but do let us know in the comments if you have further light to shed on this! Such books are, of course, still popular in children’s publishing today, though the die cutting is not now limited to mere outlines, as evidenced in a beautiful 2014 version of the same Little Red Riding Hood story. 
+![services.jpg](https://cdn.hashnode.com/res/hashnode/image/upload/v1552746447509/Mk9Ql1dmR.jpeg)
+When high availability required, then we need to scale the system so that each service have a copy of its own and run these copy in another node( separate physical/ virtual machine).
 
-The die cut has also been employed in the non-juvenile sphere as well, a recent example being Jonathan Safran Foer’s ambitious Tree of Codes. 
+![services (1).jpg](https://cdn.hashnode.com/res/hashnode/image/upload/v1552746901189/QVAp0Uair.jpeg)
+Here, load balancer used to distribute the load between servers. In this system, single point failure handled by routing traffic to other node if one node is getting down.
 
-As for this particular rendition of Charles Perrault’s classic tale, the text and design is by Lydia Very (1823-1901), sister of Transcendentalist poet Jones Very. The gruesome ending of the original - which sees Little Red Riding Hood being gobbled up as well as her grandmother - is avoided here, the gore giving way to the less bloody aims of the morality tale, and the lesson that one should not disobey one’s mother.
+In lager system which has lots of nodes and services, hardware utilization may be not efficient since each of service requires different hardware requirements. Therefore hardwiring services into a specific node is not that efficient. Kubernetes provide an elegant way to solve this resource utilization issues by orchestrating container services in multiple nodes.
 
-To deviate from a rectilinear format, at least in the United States, is thought to be this 1863 edition of Red Riding Hood, cut into the shape of the protagonist herself with the troublesome wolf curled at her feet. Produced by the Boston-based publisher Louis Prang, this is the first in their “Doll Series”, a set of five “die-cut” books, known also as shape books — the other titles being Robinson Crusoe, Goody Two-Shoes (also written by Red Riding Hood author Lydia Very), Cinderella, and King Winter. 
+Kubernetes cluster maintains by the master which include scheduling applications, maintaining applications' desired state, scaling applications, and rolling out new updates. A node is a VM or a physical computer that serves as a worker machine in a Kubernetes cluster. Node and master communicate with each other through the Kubernetes API.
+A Kubernetes pod is a group of containers that are deployed together on the same host.
 
-An 1868 Prang catalogue would later claim that such “books in the shape of a regular paper Doll... originated with us”. 
+### Features of Kubernetes
+Kubernetes provide multiple features so that application deployer can easily deploy and maintain the whole system.
+- Container grouping using pod
 
-> The claim could also extend to die cut books in general, as we can’t find anything sooner, but do let us know in the comments if you have further light to shed on this! Such books are, of course, still popular in children’s publishing today, though the die cutting is not now limited to mere outlines, as evidenced in a beautiful 2014 version of the same Little Red Riding Hood story. 
+A pod is a collection of containers and the unit of deployment in Kubernetes cluster. 
+- Control replication
 
-The die cut has also been employed in the non-juvenile sphere as well, a recent example being Jonathan Safran Foer’s ambitious Tree of Codes. 
+This component allows maintaining the number of replicated services that need to keep in Kubernetes cluster.
+- Resource Monitoring
 
-As for this particular rendition of Charles Perrault’s classic tale, the text and design is by Lydia Very (1823-1901), sister of Transcendentalist poet Jones Very. The gruesome ending of the original - which sees Little Red Riding Hood being gobbled up as well as her grandmother - is avoided here, the gore giving way to the less bloody aims of the morality tale, and the lesson that one should not disobey one’s mother.
+Health and the performance of the cluster can be measure by using add ons such as Heapster. This will collect the metrics from the cluster and save stats in InfluxDB. Data can be visualized by using Grafana which is ideal UI to analyze these data.
+- Horizontal auto scaling
+
+Heapster data also useful when scaling the system when high load comes into the system. Number of pods can be increase or decrease according the load of the system.
+- Collecting logs
+
+Collecting log is important to check the status of the containers. Fluentd used along with Elastic Search and Kibana to read the logs from the containers.
+
+See you in next article to get hands-on experience of Kubernetes. Also you are welcome to follow me on [twitter](https://twitter.com/Dhanushkamadus2) to get to know more about tech news. Cheers :).
