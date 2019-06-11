@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Kubernetes in Microservices World"
-author: sal
-categories: [ tutorial ]
+author: dhanushka
+categories: [ devops ]
 image: https://hashnode.imgix.net/res/hashnode/image/upload/v1553077553650/FpwpRvSPX.jpeg?w=500&h=263&fit=crop&crop=entropy&auto=format,enhance&q=60
 tags: [featured]
 ---

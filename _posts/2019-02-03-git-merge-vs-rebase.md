@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Git Merge vs Rebase"
-author: jane
-categories: [ Jekyll, tutorial ]
+author: dhanushka
+categories: [ git ]
 image: https://hashnode.imgix.net/res/hashnode/image/upload/v1555998915146/VyaY8CzvW.jpeg?w=1600&h=840&fit=crop&crop=entropy&auto=format,enhance&q=60
 tags: [summer]
 ---

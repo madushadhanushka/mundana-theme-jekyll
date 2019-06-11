@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Introduction to The Docker Life Cycle"
-author: sal
-categories: [ Jekyll, tutorial ]
+author: dhanushka
+categories: [ devops ]
 image: https://hashnode.imgix.net/res/hashnode/image/upload/v1551680604565/lOt0NNEiB.jpeg?w=1600&h=840&fit=crop&crop=entropy&auto=format,enhance&q=60)
 ---
 

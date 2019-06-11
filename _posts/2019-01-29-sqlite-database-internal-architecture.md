@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "SQLite Database Internal Architecture"
-author: sal
-categories: [ Jekyll ]
+author: dhanushka
+categories: [ database ]
 image: https://hashnode.imgix.net/res/hashnode/image/upload/v1550490472721/vmmqmNXxg.png?w=1600&h=840&fit=crop&crop=entropy&auto=format,enhance&q=60
 ---
 In a computer program, the database is the heart of handling data. It provides an efficient way of storing and retrieving data fast. Learning Database internal architecture in code level is not that so easy since Database has complex architecture. Looking into a complex database is not that easy because of the complexity. But, SQLite is a nice little compact database that used in millions of devices and operating systems. Interesting fact about the SQLite database is that, code is highly readable. All most all of the codes are well commented and architecture is highly layered. This post is to look at the high-level architecture of the SQLite database.

@@ -1,7 +1,8 @@
 ---
 layout: post
 title:  "Deploy Your First Application in Docker Swarm"
-categories: [ Jekyll, tutorial ]
+author: dhanushka
+categories: [ devops ]
 image: https://hashnode.imgix.net/res/hashnode/image/upload/v1554121623936/9vlOB2q4a.jpeg?w=500&h=263&fit=crop&crop=entropy&auto=format,enhance&q=60"
 ---
 In this post we will go through the basic concept of the Docker Swarm and have some hands on experience of deploying application on Docker Swarm. You need to have basic knowledge about Containers to follow this post. Here, an article that describe the basic of the [Docker Container](https://hashnode.com/post/introduction-to-the-docker-life-cycle-cjsujgkbn002agvs1pcfx99lb).

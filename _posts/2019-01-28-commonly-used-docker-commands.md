@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Commonly Used Docker Commands"
-author: jane
-categories: [ Jekyll, tutorial ]
+author: dhanushka
+categories: [ devops]
 image: https://hashnode.imgix.net/res/hashnode/image/upload/v1549819815002/D8Wzk68RA.png?w=1600&h=840&fit=crop&crop=entropy&auto=format,enhance&q=60
 tags: [featured]
 ---

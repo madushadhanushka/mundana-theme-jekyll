@@ -1,7 +1,8 @@
 ---
 layout: post
 title:  "Weird Programming Languages That You May Have Not Heard"
-categories: [ Jekyll ]
+author: dhanushka
+categories: [ programming ]
 image: https://hashnode.imgix.net/res/hashnode/image/upload/v1557209053906/hbB7JDlHy.jpeg?w=1600&h=840&fit=crop&crop=entropy&auto=format,enhance&q=60
 ---
 
