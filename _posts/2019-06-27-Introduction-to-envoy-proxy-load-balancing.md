@@ -5,23 +5,23 @@ author: dhanushka
 categories: [ devops ]
 image: //hashnode.imgix.net/res/hashnode/image/upload/v1561312457269/G5Pz1-Ghi.jpeg
 ---
-Load balancing is a common term for a devops engineer. When huge of traffic comes into to your system, you need to find out a way to scale the system so that it can handle it properly. One solution is to increase the performance of the running single node. Another solution is to add more nodes and distribute the work among these nodes. Having many node have another added advantage of high availability. Load balancers used to distribute the traffic among the worker nodes.
+For a devops engineer, load balancing is a popular word. You need to figure out a way to scale the system so that it can manage it correctly when enormous traffic enters your system. One alternative is to boost the running single node’s efficiency. Adding more nodes and distributing the job among these nodes is another option. Having many nodes has another high availability added benefit.
 
-Envoy proxy is a proxy service that used in latest trending concept that known as Service Mesh. We will see the load balancing aspect of the Envoy Proxy in this blog post.
+Envoy proxy is a proxy service that in the growing trend has been used as a service mesh. In this blog post, we’ll see the load balancing aspect of the Envoy Proxy.
 
 ## Load Balancers
 
 ![loadbalancer.jpg](https://cdn.hashnode.com/res/hashnode/image/upload/v1561200701337/6m8S99wcO.jpeg)
 
-Load balancers is an endpoint that listen to the request that coming into the computation cluster. When request comes into the Load balancer, it check for available worker nodes and distribute request among worker nodes. Load balancers do following things.
+Load balancers is an endpoint that listens to the request that comes into the computation cluster. When application enters the Load Balancer, it checks for accessible worker nodes and distributes requests among worker nodes. Load balancer has the following characteristics.
 - Service Discovery: Check available worker nodes
 - Health check: Regularly inspect worker nodes health.
 - Load balancing: Distribute the request between the worker nodes.
 
 ## Proxy
-Proxy is an intermediary component that exist between two endpoints. Proxy service take client request and forward it to the destination server. There are two types of proxies. Forward proxy and Reverse Proxy. Instead of sending request directly to the endpoint, we can also send it through a proxy. This type of proxy known as Forward proxy. Forward proxy commonly used to bypass the firewall restrictions and access to blocked websites.  
+Proxy is an intermediate element that exists between two endpoints. Proxy service will take requests from the client and forward them to the target server. There are two kinds of proxies. Forward proxy and reverse proxy. Instead of sending application straight to the endpoint, we can also send it via a proxy. This proxy type known as the Forward proxy. Forward proxy frequently used to bypass firewall constraints and access blocked websites. 
 
-Revers proxy is a type of a proxy service that take incoming client request and forward it to the server that can fulfill it. The result will be rout back to the client. Addition to that, proxy also provide more control over the client request. It can also cache the request and speedup the network performance. Reverse Proxy used to
+Revers proxy is a form of proxy service that takes incoming client requests and transmits them to the server that can satisfy them. The outcome will be routing back to the client. In addition, proxy also provides more control over the client request. It can also cache the application and speed up the efficiency of the network. Reverse Proxy used to
 - To enable indirect access when a website disallows direct connections as a security measure.
 - To stream internal content to Internet users.
 - To allow for load balancing between severs.
@@ -29,31 +29,30 @@ Revers proxy is a type of a proxy service that take incoming client request and 
 
 ## Load balancing topologies
 
-Proxy sitting between client and backend endpoint. Load balancing can be divided into following topologies based on the place where proxy service placed.
+Proxy standing between client endpoint and backend endpoint. Load balancing can be split into following topologies depending on where proxy service is positioned.
 
 ### Middle Proxy
 
 ![middle proxy.jpg](https://cdn.hashnode.com/res/hashnode/image/upload/v1561205086390/LSqMUbxzw.jpeg)
 
-All client request comes into the the middle proxy. Middle proxy rout request into the worker node. This type of load balancers are simple and straight forward.
+All request from the client goes into the middle proxy. Middle proxy rout request into the worker nodes. This sort of load balancers is easy and straight forward.
 
 ### Embedded Client Library
 
 
 ![embeddedlibrary.jpg](https://cdn.hashnode.com/res/hashnode/image/upload/v1561205823453/R5t8rUG_s.jpeg)
 
-The biggest problem in the Middle Proxy is that, Single point failure. If Middle Proxy server get down, then client services unable to access backend services.
-In this type of proxy, instead of central load balancer, load balancing done by the client it self. This kind of system can implemented by using gRPC libraries.
+The largest issue in the Middle Proxy is the single point failure. If the Middle Proxy server gets down, then client services are unable to access backend facilities. In this form of proxy, load balancing is performed by the client itself instead of main load balancing. Using gRPC libraries, this type of mechanism can be introduced.
 
-Growing complexity become a problem in this type of load balancers. Also, developer need to install load balancing component for each of the service.
+In this sort of load balancers, growing complexity becomes an issue. Developers also need to install load balancing components for each service.
 
 ### Side Car Proxy
 
 ![embeddedlibrary (1).jpg](https://cdn.hashnode.com/res/hashnode/image/upload/v1561210903166/SeuzlneW7.jpeg)
 
-The biggest problem in Embedded Client Library is that the complexity of building communication component for each of the services. With the recent trend of using container technology, Client Library separated into the containers. So, there is no programming languages lock in while developing decentralized load balancers. This is know as Side Car. This type of proxy service implementation known as Service Mesh. Side Car responsible to rout client request into the appropriate backend service.
+The biggest issue in the Embedded Client Library is the complexity of constructing communication element for each of the services. Client Library divided into the containers with the latest trend of using container technology. There is no lock in programming languages while designing decentralized load balancers. This is known as a side car. This type of application of the proxy service known as Service Mesh. Side Car responsible for routing customer requests into the suitable backend service.
 
-Envoy is high performance revers proxy written in C++ language by Lyft. Envoy used to interconnect services in Service Mesh. Here follow are common terminology that used by Envoy proxy.
+Envoy is a high quality reverse proxy published by Lyft in C++ language. Envoy used in Service Mesh to interconnect services. The following are common terminology used by Envoy Proxy.
 
 - Host: An entity capable of network communication.
 - Downstream: Hosts that send request to the envoy proxy.
@@ -62,11 +61,11 @@ Envoy is high performance revers proxy written in C++ language by Lyft. Envoy us
 - Cluster: Cluster is group of logically same upstream host that envoy can connect. Envoy can discover cluster by using service discovery.
 
 ## Front Envoy Proxy
-Aport from Side Car proxy, Envoy can be configure as Front envoy proxy as well. Front proxy configured as primary load balancer to the request coming in from the public internet. This proxy also know and edge proxy. Overall architecture of Service Mesh would be like follows.
+Aport from Side Car Proxy, Envoy can also be configured as a Front Proxy. Front proxy configured as the main load balancer to the request from the public internet. This proxy also know as edge proxy. Service Mesh’s overall architecture would be as follows.
 
 ![proxymesh.jpg](https://cdn.hashnode.com/res/hashnode/image/upload/v1561216275915/eEMY3ilcZ.jpeg)
 
-Here, front proxy used as load balancer for the incoming internet traffic. Here TLS termination also perform.  Then request rout to the relevant services through side car proxies. Service mesh can detect available services through service discovery. It also provide circuit brake features to handle fail overs. Collectively, Envoy provide whole bunch of features to implement a Service Mesh.
+Here, the front proxy has been used as a load balancer for incoming Internet traffic. Also conduct termination of TLS here. Then request routing via side car proxies to the appropriate facilities. Service mesh can identify services that are accessible through service discovery. It also provides circuit brake characteristics for handling failure overs. Collectively, Envoy provides a whole lot of characteristics to implement a Service Mesh.
 
 ## Types of Load Balancers in Envoy Proxy
 When proxy need to acquire connection to host in upstream cluster, the cluster manager use following polices to rout traffic.
