@@ -3,7 +3,7 @@ layout: post
 title:  "Introduction to the Envoy Proxy Load Balancing"
 author: dhanushka
 categories: [ devops ]
-image: //hashnode.imgix.net/res/hashnode/image/upload/v1561312457269/G5Pz1-Ghi.jpeg
+image: https://hashnode.imgix.net/res/hashnode/image/upload/v1561312457269/G5Pz1-Ghi.jpeg
 ---
 For a devops engineer, load balancing is a popular word. You need to figure out a way to scale the system so that it can manage it correctly when enormous traffic enters your system. One alternative is to boost the running single node’s efficiency. Adding more nodes and distributing the job among these nodes is another option. Having many nodes has another high availability added benefit.
 

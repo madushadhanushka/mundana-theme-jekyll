@@ -3,7 +3,7 @@ layout: post
 title:  "First glimpse of Ballerina language: Language of Integration"
 author: dhanushka
 categories: [ Programming ]
-image: //miro.medium.com/max/4396/1*2MsLyXWTedL53FxjViFYPg.jpeg
+image: https://miro.medium.com/max/4396/1*2MsLyXWTedL53FxjViFYPg.jpeg
 ---
 Ballerina is the latest programming language released on September 10th of this year. There are more than a thousand programming languages out there. Why do you need another programming language? Ballerina language intended to simplify the particular programming domain known as integration. You may be a developer who develops different kinds of web services and intends to interconnect those services. Then the Ballerina language will be your next programming companion.
 
