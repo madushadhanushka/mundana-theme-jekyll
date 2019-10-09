@@ -3,7 +3,7 @@ layout: post
 title:  "File and Folder Comparison Tools for Software Developers"
 author: dhanushka
 categories: [ Tools ]
-image: //www.oxygenxml.com/img/compare_files_visual_mode.png
+image: https://www.oxygenxml.com/img/compare_files_visual_mode.png
 ---
 
 If you are a software developer, you would typically use file comparison tools to compare two files. This is a common requirement for developers to deal with a lot of files such as codes JSON, XML, etc. Comparing big, complex files is not that simple without using a tool. Here we're looking at the top list of tools that can be used to easily compare two files.
